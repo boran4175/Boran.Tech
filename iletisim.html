@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim // HW_LAB Laboratuvarı</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* --- NAVBAR SABİTLEME (TÜM SAYFALAR İÇİN) --- */
+        .navbar { 
+            min-height: 75px !important; 
+            background: rgba(13, 13, 15, 0.95) !important;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-link { 
+            font-family: 'JetBrains Mono', monospace !important; 
+            font-size: 0.75rem !important; 
+            letter-spacing: 1px !important;
+            color: rgba(255,255,255,0.6) !important;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem !important;
+        }
+
+        /* Boran.Tech Logo ve İkon - Normal ve İnce Görünüm */
+.navbar-brand {
+    font-family: 'Inter', sans-serif !important; /* Daha sade bir font */
+    font-weight: 500 !important; /* Normal/Orta kalınlık */
+    font-size: 1.25rem !important;
+    letter-spacing: 0px !important;
+    text-transform: none; /* Büyük harf zorunluluğunu kaldırır */
+    color: #fff !important;
+}
+
+
+        /* Bu sayfa aktif olduğu için rengini cyan yapıyoruz */
+       /* Aktif sayfa rengi */
+.nav-link.active-link {
+    color: var(--accent) !important; /* --tech-blue yerine --accent yazdık */
+    font-weight: 700 !important;
+}
+
+        :root {
+            --bg: #0a0a0c;
+            --panel: #14141a;
+            --accent: #0070f3;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        body { 
+            background: var(--bg); 
+            color: #fff; 
+            font-family: 'Inter', sans-serif; 
+            min-height: 100vh;
+            padding: 50px 0;
+        }
+
+        .section-title {
+            font-family: 'Montserrat';
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 40px;
+        }
+
+        /* Bilgi Kutuları */
+        .info-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 12px;
+            height: 100%;
+            transition: 0.3s;
+        }
+        .info-card:hover { border-color: var(--accent); }
+        .info-card i { color: var(--accent); font-size: 1.5rem; margin-bottom: 15px; }
+        .info-card h6 { font-family: 'JetBrains Mono'; color: #888; font-size: 0.75rem; text-transform: uppercase; }
+        .info-card p { margin: 0; font-weight: 600; font-size: 1rem; }
+
+        /* Form Alanı */
+        .contact-form-wrapper {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .custom-input {
+            background: #000 !important;
+            border: 1px solid var(--border) !important;
+            color: #fff !important;
+            padding: 12px !important;
+            margin-bottom: 20px;
+        }
+
+        .custom-input:focus {
+            border-color: var(--accent) !important;
+            box-shadow: 0 0 10px rgba(0, 112, 243, 0.2) !important;
+        }
+
+        .btn-send {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            font-weight: 900;
+            font-family: 'Montserrat';
+            text-transform: uppercase;
+            border-radius: 8px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn-send:hover { background: #0056b3; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+    <i class="fas fa-microchip"></i> Boran.Tech
+</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">[00] ANA SAYFA</a></li>
+                <li class="nav-item"><a class="nav-link" href="işlemci.html">[01] ISLEMCI</a></li>
+                <li class="nav-item"><a class="nav-link" href="GPU.html">[02] GRAFIK</a></li>
+                <li class="nav-item"><a class="nav-link" href="ram.html">[03] RAM & SSD</a></li>
+                <li class="nav-item"><a class="nav-link" href="bellek.html">[04] BELLEK</a></li>
+                <li class="nav-item"><a class="nav-link active-link" href="iletisim.html">[05] ILETISIM</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <br>
+    <br>
+    <div class="text-center section-title">
+        <h1 class="display-4">BİZE <span style="color: var(--accent);">ULAŞIN</span></h1>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-4">
+            <div class="row g-3">
+                <div class="col-12">
+                    <div class="info-card">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <h6>Telefon</h6>
+                        <p>537 349 68 75</p>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="info-card">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <h6>Ofis Adresi</h6>
+                        <p>Abdi İpekçi Mahallesi<br>Darıca / Kocaeli</p>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="info-card">
+                        <i class="fa-solid fa-clock"></i>
+                        <h6>Çalışma Saatleri</h6>
+                        <p>Pzt - Cuma: 09:00 - 18:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <div class="contact-form-wrapper">
+                <form action="#">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="small text-secondary font-monospace mb-1">AD_SOYAD</label>
+                            <input type="text" class="form-control custom-input" placeholder="Örn: Ahmet Yılmaz">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="small text-secondary font-monospace mb-1">E_POSTA</label>
+                            <input type="email" class="form-control custom-input" placeholder="ahmet@mail.com">
+                        </div>
+                    </div>
+                    <label class="small text-secondary font-monospace mb-1">KONU</label>
+                    <input type="text" class="form-control custom-input" placeholder="Teknik Destek, İş Birliği vb.">
+                    
+                    <label class="small text-secondary font-monospace mb-1">MESAJ_PAKETİ</label>
+                    <textarea class="form-control custom-input" rows="5" placeholder="Mesajınızı detaylandırın..."></textarea>
+                    
+                    <button type="submit" class="btn-send">VERİYİ_İLET <i class="fa-solid fa-paper-plane ms-2"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

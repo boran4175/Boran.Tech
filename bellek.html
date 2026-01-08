@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSD_LAB // Depolama Birimleri Veritabanı</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=JetBrains+Mono:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --dark-bg: #0d0d0f;
+            --panel-gray: #16161a;
+            --tech-blue: #007bff; /* Saf Mavi */
+            --text-ghost: #f8f9fa;
+            --text-dim: #94949b;
+            --border-tech: rgba(0, 123, 255, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-ghost);
+            padding-top: 90px;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar { 
+            min-height: 75px !important; 
+            background: rgba(13, 13, 15, 0.95) !important;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border-tech);
+        }
+
+        .nav-link { 
+            font-family: 'JetBrains Mono', monospace !important; 
+            font-size: 0.75rem !important; 
+            letter-spacing: 1px !important;
+            color: rgba(255,255,255,0.6) !important;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem !important;
+        }
+
+        .nav-link.active-link {
+            color: var(--tech-blue) !important; 
+            font-weight: 700 !important;
+            text-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
+        }
+
+        /* --- STORAGE GRID --- */
+        .storage-card {
+            background: var(--panel-gray);
+            border: 1px solid var(--border-tech);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+        }
+
+        .storage-img-box {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .storage-img-box img {
+            width: 80%;
+            transition: transform 0.6s ease;
+            opacity: 0.8;
+            filter: brightness(0.9);
+        }
+
+        /* Hover Bilgi Paneli (Mavi) */
+        .storage-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 123, 255, 0.85); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            padding: 20px;
+            text-align: center;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Hover Efektleri */
+        .storage-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--tech-blue);
+            box-shadow: 0 15px 35px rgba(0, 123, 255, 0.3);
+        }
+
+        .storage-card:hover .storage-img-box img {
+            transform: scale(1.1);
+            opacity: 0.2;
+        }
+
+        .storage-card:hover .storage-overlay {
+            opacity: 1;
+        }
+
+        .storage-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            padding: 15px;
+            background: var(--panel-gray);
+            text-align: center;
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-ghost);
+            border-top: 1px solid var(--border-tech);
+            transition: 0.3s;
+        }
+
+        .storage-card:hover .storage-name {
+            color: var(--tech-blue);
+        }
+
+        .spec-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            margin-bottom: 5px;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .section-title { font-family: 'Montserrat'; font-weight: 900; letter-spacing: -1px; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+    <div class="container">
+       <a class="navbar-brand fw-black" href="index.html"><i class="fas fa-microchip me-2"></i>Boran.Tech</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">[00] ANA SAYFA</a></li>
+                <li class="nav-item"><a class="nav-link" href="işlemci.html">[01] ISLEMCI</a></li>
+                <li class="nav-item"><a class="nav-link" href="GPU.html">[02] GRAFIK</a></li>
+                <li class="nav-item"><a class="nav-link" href="ram.html">[03] RAM & SSD</a></li>
+                <li class="nav-item"><a class="nav-link active-link" href="bellek.html">[04] BELLEK</a></li>
+                <li class="nav-item"><a class="nav-link" href="iletisim.html">[05] ILETISIM</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <div class="text-center mb-5">
+        <h6 class="font-monospace" style="color:var(--tech-blue)">// SSD_DATABASE</h6>
+        <h1 class="display-4 section-title">SSD <span style="color:var(--tech-blue)">ARŞİV</span></h1>
+        <p class="text-dim">Yüksek hızlı veri depolama ve NVMe mimari arşivi.</p>
+    </div>
+    
+    <div class="row g-4" id="ssd-grid">
+        </div>
+</div>
+
+
+
+<script>
+    const ssdData = [
+        {n: "CRUCIAL T705 GEN5", s1: "14,500 MB/s Okuma", s2: "PCIe 5.0 NVMe", i: "kl.jpg"},
+        {n: "SAMSUNG 990 PRO", s1: "7,450 MB/s Okuma", s2: "V-NAND Gen4 x4", i: "900.avif"},
+        {n: "WD_BLACK SN850X", s1: "7,300 MB/s Okuma", s2: "Heatsink Edition", i: "c.jpg"},
+        {n: "SAMSUNG PM1733", s1: "30.72 TB Kapasite", s2: "Enterprise U.2", i: "1733.avif"},
+        {n: "SAMSUNG 870 EVO", s1: "560 MB/s Okuma", s2: "2.5\" SATA III", i: "ş.jpg"},
+        {n: "SANDISK EXTREME", s1: "1,050 MB/s Okuma", s2: "Portable Rugged", i: "san.jpg"},
+        {n: "SEAGATE IRONWOLF", s1: "NAS Optimized", s2: "125 Series SSD", i: "wollf.jpg"},
+        {n: "KINGSTON FURY", s1: "7,300 MB/s Okuma", s2: "Renegade Gen4", i: "tr.avif"}
+    ];
+
+    const container = document.getElementById('ssd-grid');
+    container.innerHTML = ssdData.map(ssd => `
+        <div class="col-6 col-md-4 col-lg-3" style="animation: fadeIn 0.6s ease forwards;">
+            <div class="storage-card">
+                <div class="storage-img-box">
+                    <img src="${ssd.i}" alt="${ssd.n}">
+                    <div class="storage-overlay">
+                        <div class="spec-item">${ssd.s1}</div>
+                        <div class="spec-item">${ssd.s2}</div>
+                    </div>
+                </div>
+                <h5 class="storage-name">${ssd.n}</h5>
+            </div>
+        </div>
+    `).join('');
+</script>
+
+</body>
+</html>
